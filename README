@@ -1,0 +1,18 @@
+sudo pip install virtualenv
+following command is not required
+#virtualenv venv
+
+#Start from below
+
+. venv/bin/activate
+pip install https://github.com/mitsuhiko/flask/tarball/master
+pip install Flask-SQLAlchemy
+pip install Flask-MySQLdb
+
+configure the db link in feed/__init__.py
+SQLALCHEMY_DATABASE_URI
+
+flask --app=feed initdb
+
+
+
