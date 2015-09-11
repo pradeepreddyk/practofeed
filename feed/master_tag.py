@@ -13,5 +13,5 @@ class MasterTag(db.Model):
         self.parent = parent
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User %r>' % self.name
 
