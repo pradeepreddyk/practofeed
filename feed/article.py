@@ -17,7 +17,13 @@ class Article(db.Model):
     source = db.relationship('Source',
         backref=db.backref('articles', lazy='dynamic'))
 
-    def __init__(self, title, content, source, author, is_primary_author= False,
+    master_publisher_id = db.Column(db.Integer,
+        db.ForeignKey('master_publisher.id'))
+    master_publisher = db.relationship('MasterPublisher',
+        backref=db.backref('articles', lazy='dynamic'))
+
+    def __init__(self, title, content, source, author, master_publisher = None, 
+        is_primary_author= False,
         created_at=None ):
         self.title = title
         self.content = content
@@ -26,6 +32,7 @@ class Article(db.Model):
         self.created_at = created_at
         self.source = source
         self.author = author
+        self.master_publisher = master_publisher
         self.is_primary_author = is_primary_author
 
     def __repr__(self):

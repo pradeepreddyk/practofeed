@@ -17,9 +17,11 @@ from feed.user import User
 from feed.source import Source
 from feed.article import Article
 from feed.master_tag import MasterTag
-from feed.master_publisher import MasterPublisher
 from feed.article_tag import ArticleTag
 from feed.tag_follow import TagFollow
+from feed.user_follow import UserFollow
+from feed.master_publisher import MasterPublisher
+from feed.publisher_follow import PublisherFollow
 
 # For now define routes here
 @app.route("/")
