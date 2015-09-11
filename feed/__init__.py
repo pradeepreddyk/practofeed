@@ -22,6 +22,7 @@ from feed.tag_follow import TagFollow
 from feed.user_follow import UserFollow
 from feed.master_publisher import MasterPublisher
 from feed.publisher_follow import PublisherFollow
+from feed.user_article_action import UserArticleAction
 
 # For now define routes here
 @app.route("/")
