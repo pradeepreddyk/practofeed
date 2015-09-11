@@ -1,4 +1,5 @@
 from feed import db
+from flask.ext.restful import Resource
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,3 +19,9 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
+class UserApi(Resource):                                                      
+    def get(self):
+        admin = User.query.filter_by(role='admin').first()                             
+        if not admin:                                                                  
+            return {False}
+        return {'email': admin.email, 'name' : admin.username}

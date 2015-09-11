@@ -2,6 +2,7 @@ from feed import db
 from feed.source import Source
 from feed.user import User
 from datetime import datetime
+from flask.ext.restful import Resource
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -38,3 +39,6 @@ class Article(db.Model):
     def __repr__(self):
         return '<Article %r>' % self.title
 
+class ArticleApi(Resource):
+    def get(self):
+        return {'class': 'article', 'first': 'john', 'last': 'doe'}
