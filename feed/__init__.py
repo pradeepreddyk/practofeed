@@ -17,7 +17,8 @@ db = SQLAlchemy(app)
 from feed.user import User, UserApi
 from feed.source import Source
 from feed.article import Article, ArticleApi
-from feed.master_tag import MasterTag
+from feed.master_tag_type import MasterTagType
+from feed.master_tag import MasterTag, TagApi
 from feed.article_tag import ArticleTag
 from feed.tag_follow import TagFollow
 from feed.user_follow import UserFollow
@@ -29,6 +30,7 @@ from feed.user_article_action import UserArticleAction
 api = Api(app)
 api.add_resource(ArticleApi, '/article')
 api.add_resource(UserApi, '/user')
+api.add_resource(TagApi, '/tag')
 
 # For now define routes here
 @app.route("/")
@@ -47,5 +49,4 @@ def initdb_command():
     admin = User('admin', 'admin@example.com','admin')
     db.session.add(admin)
     db.session.commit()
-
 
