@@ -60,5 +60,31 @@ def initdb_command():
     db.session.add(master_tag_type1)
     db.session.add(master_tag_type2)
     db.session.add(master_tag_type3)
+
+    master_tag1 = MasterTag('General Health',
+        master_tag_type1, 
+        'http://www.exisoftware.com/thumbnail_generator/'+                       
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_5184.jpg')
+    master_tag2 = MasterTag('New Born',
+        master_tag_type1, 
+        'http://www.exisoftware.com/thumbnail_generator/'+                       
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_5184.jpg')
+    master_tag3 = MasterTag('Hair',
+        master_tag_type1, 
+        'http://www.exisoftware.com/thumbnail_generator/'+                       
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_5185.jpg')
+    master_tag4 = MasterTag('Fitness',
+        master_tag_type1, 
+        'http://www.exisoftware.com/thumbnail_generator/'+                       
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_5186.jpg')
+    master_tag21 = MasterTag('Hair Fall',
+        master_tag_type2, 
+        'http://www.exisoftware.com/thumbnail_generator/'+                       
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_5187.jpg')
+    db.session.add(master_tag1)
+    db.session.add(master_tag2)
+    db.session.add(master_tag3)
+    db.session.add(master_tag4)
+    db.session.add(master_tag21)
     db.session.commit()
 
