@@ -81,6 +81,15 @@ def initdb_command():
         master_tag_type2, 
         'http://www.exisoftware.com/thumbnail_generator/'+                       
         'sample-galleries/basic-web-photo-gallery/thumbs/tn_5187.jpg')
+
+    source1 = Source('HealthLine',
+        'url')
+    article1 = Article( 'title',
+        'content',
+        'image',
+        source1,
+        admin)
+        
     db.session.add(master_tag1)
     db.session.add(master_tag2)
     db.session.add(master_tag3)

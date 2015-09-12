@@ -7,6 +7,7 @@ from flask.ext.restful import Resource
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120))
+    image = db.Column(db.String(256))
     content = db.Column(db.Text)
     created_at = db.Column(db.DateTime)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -23,10 +24,12 @@ class Article(db.Model):
     master_publisher = db.relationship('MasterPublisher',
         backref=db.backref('articles', lazy='dynamic'))
 
-    def __init__(self, title, content, source, author, master_publisher = None, 
+    def __init__(self, title, content, image,
+        source, author, master_publisher = None, 
         is_primary_author= False,
         created_at=None ):
         self.title = title
+        self.image = image
         self.content = content
         if created_at is None:
             created_at = datetime.utcnow()
