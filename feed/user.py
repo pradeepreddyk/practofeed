@@ -7,8 +7,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True)
     password = db.Column(db.String(120))
-    photo_url = db.Column(db.String(256), unique=True)
-    role = db.Column(db.String(256), unique=True)
+    photo_url = db.Column(db.String(256))
+    role = db.Column(db.String(256))
     score = db.Column(db.Integer)
     token = db.Column(db.String(256), unique=True)
 
@@ -45,11 +45,13 @@ class UserApi(Resource):
         password = request.form['password']
         if email and password:
             user = User.query.filter_by(email=email).first()
+            print user
             if not user:
                 user = User(email, email)
                 user.set_password(password)
                 user.set_token()
                 db.session.add(user)
-                
+                db.session.commit()
+
             return jsonify(email= user.email, token= user.token)
                 
