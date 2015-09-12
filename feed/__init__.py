@@ -2,15 +2,16 @@ from flask import Flask, request, session, g, redirect, url_for, \
          abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.restful import Api
-
+from flask.ext.bcrypt import Bcrypt
 
 # configuration
-SQLALCHEMY_DATABASE_URI = 'mysql://root:root@127.0.0.1/feed'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:vagrant@127.0.0.1/feed'
 DEBUG = True
 
 # initialize flask app and set config
 app = Flask(__name__)
 app.config.from_object(__name__)
+bcrypt = Bcrypt(app)
 
 # initialize alchemy DB object
 db = SQLAlchemy(app)
@@ -46,7 +47,8 @@ def initdb_command():
     print 'Init the db'
     db.drop_all()
     db.create_all()
-    admin = User('admin', 'admin@example.com','admin')
+    admin = User('admin@example.com')
+    admin.set_password('admin')
     db.session.add(admin)
     master_tag_type1 = MasterTagType('Everyday Health Tip',
         'http://www.exisoftware.com/thumbnail_generator/'+

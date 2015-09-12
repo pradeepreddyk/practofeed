@@ -1,0 +1,4 @@
+Flask-SQLAlchemy
+Flask-MySQLdb
+flask-restful
+flask-bcrypt
