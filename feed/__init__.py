@@ -5,7 +5,7 @@ from flask.ext.restful import Api
 from flask.ext.bcrypt import Bcrypt
 
 # configuration
-SQLALCHEMY_DATABASE_URI = 'mysql://root:vagrant@127.0.0.1/feed'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@127.0.0.1/feed'
 DEBUG = True
 
 # initialize flask app and set config
