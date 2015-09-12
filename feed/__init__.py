@@ -48,5 +48,17 @@ def initdb_command():
     db.create_all()
     admin = User('admin', 'admin@example.com','admin')
     db.session.add(admin)
+    master_tag_type1 = MasterTagType('Everyday Health Tip',
+        'http://www.exisoftware.com/thumbnail_generator/'+
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_4310.jpg')
+    master_tag_type2 = MasterTagType('Health Conditions',
+        'http://www.exisoftware.com/thumbnail_generator/'+
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_5183.jpg')
+    master_tag_type3 = MasterTagType('Health News',
+        'http://www.exisoftware.com/thumbnail_generator/'+
+        'sample-galleries/basic-web-photo-gallery/thumbs/tn_4311.jpg')
+    db.session.add(master_tag_type1)
+    db.session.add(master_tag_type2)
+    db.session.add(master_tag_type3)
     db.session.commit()
 

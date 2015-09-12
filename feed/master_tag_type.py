@@ -6,7 +6,7 @@ class MasterTagType(db.Model):
     name = db.Column(db.String(80), unique=True)
     thumbnail = db.Column(db.String(256))
 
-    def __init__(self, name, master_type, thumbnail, parent=None):
+    def __init__(self, name, thumbnail):
         self.name = name
         self.thumbnail = thumbnail
 
