@@ -9,6 +9,7 @@ pip install https://github.com/mitsuhiko/flask/tarball/master
 pip install Flask-SQLAlchemy
 pip install Flask-MySQLdb
 pip install flask-restful
+https://flask-restful.readthedocs.org/en/0.3.2/quickstart.html
 
 configure the db link in feed/__init__.py
 SQLALCHEMY_DATABASE_URI
